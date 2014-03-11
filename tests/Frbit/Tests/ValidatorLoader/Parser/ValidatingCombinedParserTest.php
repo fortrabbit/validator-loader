@@ -202,7 +202,7 @@ class ValidatingCombinedParserTest extends TestCase
         $this->innerParser->shouldReceive('parse')
             ->once()
             ->with("source")
-            ->andReturn(['foo' => 'bar']);
+            ->andReturn(array('foo' => 'bar'));
 
         $parser->parse('source');
     }

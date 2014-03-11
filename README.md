@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fortrabbit/validator-loader.png?branch=master)](https://travis-ci.org/fortrabbit/validator-loader)
+
 # Laravel Validation Loader
 
 Load [Laravel validator](http://laravel.com/docs/validation) definitions from files or directories (or wherever you want to store them).
