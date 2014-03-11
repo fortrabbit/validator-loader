@@ -1,0 +1,33 @@
+---
+
+variables:
+    FOO: 5
+    BAR: /bar/
+
+validators:
+
+    one:
+        rules:
+            foo:
+                - min:3
+                - max:<<FOO>>
+                - regex:<<BAR>>
+        messages:
+            foo.min: Too short
+            foo.max: Too long
+            foo.regex: Not bar enough
+
+    two:
+        extends: one
+
+    three:
+        extends: four
+
+    four:
+        extends: two
+        rules:
+            bla:
+                - min:3
+        messages:
+            bla: Bla is not very long, is it?
+            foo.min: Other foo min?

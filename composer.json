@@ -1,0 +1,26 @@
+{
+    "name": "frbit/validator-loader",
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Load Laravel validator definitions from files or directories",
+    "keywords": ["laravel", "validator", "validation"],
+    "author": {
+        "name": "Ulrich Kautz",
+        "email": "uk@fortrabbit.com"
+    },
+    "require": {
+        "illuminate/filesystem": "4.1.*",
+        "illuminate/validation": "4.1.*",
+        "illuminate/translation": "4.1.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "*",
+        "phpunit/phpunit": "*",
+        "symfony/yaml": "2.4.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Frbit\\ValidatorLoader\\": "src/"
+        }
+    }
+}

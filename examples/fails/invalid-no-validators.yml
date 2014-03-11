@@ -1,0 +1,13 @@
+---
+
+one:
+    rules:
+        foo:
+            - min:3
+            - max:<<FOO>>
+            - regex:<<BAR>>
+    messages:
+        foo.min: Too short
+        foo.max: Too long
+        foo.regex: Not bar enough
+

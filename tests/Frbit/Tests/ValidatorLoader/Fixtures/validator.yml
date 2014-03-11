@@ -1,0 +1,10 @@
+---
+validators:
+    name:
+        rules:
+            parameter:
+                - min:3
+                - max:6
+        messages:
+            parameter.min: Too short
+            parameter.max: Too long
