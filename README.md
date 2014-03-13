@@ -6,7 +6,7 @@ Load [Laravel validator](http://laravel.com/docs/validation) definitions from fi
 
 The general idea is to centralize validation (rules) to simplify maintenance and maximize re-usability.
 
-Can be used with Laravel (service provider upcoming) or without Laravel.
+For the service provider, integrating the loader neatly into Laravel, [look here](https://github.com/fortrabbit/validator-loader-laravel).
 
 ## Features
 
@@ -14,8 +14,15 @@ Can be used with Laravel (service provider upcoming) or without Laravel.
 * Allows variable usage, to keep the validations clean and readable
 * Supports out of the box: JSON, YAML or native PHP files. Or directories containing such files.
 * Flexible, extendable interface
+* Can be used outside of Laravel
 
-# Example
+## Installation
+
+``` bash
+$ php composer.phar require "frbit/validator-loader:*"
+```
+
+## Example
 
 That's how you use it:
 
@@ -77,7 +84,7 @@ validators:
 
 ```
 
-## Validator files in directories
+### Validator files in directories
 
 The more complex your application becomes and the more validation rules you need, the more it makes sense split
 the rules into multiple files.
@@ -92,7 +99,7 @@ use \Frbit\ValidatorLoader\Factory;
 $loader = Factory::fromDirectory("my-directory");
 ```
 
-## Validator definition from array
+### Validator definition from array
 
 If you need the flexibility.
 
@@ -123,14 +130,14 @@ $loader = $loader = Factory::fromArray(array(
 ));
 ```
 
-# Using custom validation methods
+# #Using custom validation methods
 
 [Custom validation rules](http://laravel.com/docs/validation#custom-validation-rules), with the
 same signature as the [Validator::extend](https://github.com/illuminate/validation/blob/master/Validator.php)
 method, can be added either in the definition (file) or programmatically. Once added, they are automatically
 available in all named validators.
 
-## Definition file
+### Definition file
 
 ``` yaml
 ---
@@ -149,7 +156,7 @@ validators:
             email.foo: EMail is not foo
 ```
 
-## Programmatically
+### Programmatically
 
 ``` php
 <?php
