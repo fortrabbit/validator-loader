@@ -121,7 +121,7 @@ class LoaderTest extends TestCase
                     )
                 )
             ),
-            'methods' => array(
+            'methods'    => array(
                 'foo' => 'Foo',
                 'bar' => 'Bazoing'
             )
@@ -152,6 +152,53 @@ class LoaderTest extends TestCase
     {
         $loader = $this->generateLoader();
         $loader->get('foo', array('parameter' => 'foo'));
+    }
+
+    public function testMakingArrayFromLoader()
+    {
+        $loader = $this->generateLoader(array(
+            'validators' => array(
+                'foo' => array(
+                    'rules'    => array(
+                        'parameter' => array('min:3')
+                    ),
+                    'messages' => array(
+                        'parameter' => 'Too short'
+                    )
+                )
+            ),
+            'methods'    => array(
+                'foo' => 'Foo',
+                'bar' => 'Bazoing'
+            )
+        ));
+
+        $this->assertEquals(array(
+            'validators' => array(
+                'foo' => array(
+                    'rules'    => array(
+                        'parameter' => array('min:3')
+                    ),
+                    'messages' => array(
+                        'parameter' => 'Too short'
+                    )
+                )
+            ),
+            'methods'    => array(
+                'foo' => 'Foo',
+                'bar' => 'Bazoing'
+            )
+        ), $loader->toArray());
+    }
+
+    public function testMakingArrayFromEmptyLoader()
+    {
+        $loader = $this->generateLoader(array());
+
+        $this->assertEquals(array(
+            'validators' => array(),
+            'methods'    => array(),
+        ), $loader->toArray());
     }
 
     protected function generateLoader(array $validators = array())

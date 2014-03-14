@@ -6,6 +6,7 @@
 namespace Frbit\ValidatorLoader;
 
 use Frbit\ValidatorLoader\Exception\UnknownValidatorException;
+use Illuminate\Support\Contracts\ArrayableInterface;
 use Illuminate\Validation\Factory as ValidatorFactory;
 use Illuminate\Validation\Validator;
 use Symfony\Component\Translation\Translator;
@@ -15,7 +16,7 @@ use Symfony\Component\Translation\Translator;
  *
  * @package Frbit\ApiValidation
  **/
-class Loader
+class Loader implements ArrayableInterface
 {
     /**
      * @var array
@@ -31,7 +32,6 @@ class Loader
      * @var ValidatorFactory
      */
     protected $validatorFactory;
-
 
     /**
      * @param array            $definition
@@ -136,4 +136,16 @@ class Loader
         }
     }
 
+    /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'methods'    => $this->methods,
+            'validators' => $this->validators
+        );
+    }
 }
