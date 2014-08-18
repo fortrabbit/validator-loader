@@ -9,9 +9,9 @@
         "email": "uk@fortrabbit.com"
     },
     "require": {
-        "illuminate/filesystem": "4.1.*",
-        "illuminate/validation": "4.1.*",
-        "illuminate/translation": "4.1.*"
+        "illuminate/filesystem": "4.2.*",
+        "illuminate/validation": "4.2.*",
+        "illuminate/translation": "4.2.*"
     },
     "require-dev": {
         "mockery/mockery": "*",
