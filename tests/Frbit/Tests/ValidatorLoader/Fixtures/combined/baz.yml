@@ -1,0 +1,12 @@
+---
+
+variables:
+    BAZ1: This combines foo one and bar one: <<FOO1>>, <<BAR1>>
+
+validators:
+    baz:
+        rules:
+            parameter:
+                - required
+        messages:
+            parameter.required: Combined: <<BAZ1>>

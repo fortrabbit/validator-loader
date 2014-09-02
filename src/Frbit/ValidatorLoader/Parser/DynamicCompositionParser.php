@@ -192,6 +192,9 @@ class DynamicCompositionParser implements Parser
      */
     protected function resolveVariables()
     {
+        foreach ($this->variables as $key => $value) {
+            $this->variables[$key] = static::replaceAllVariables($value, $this->variables, 'variables', 'GLOBAL VARIABLES');
+        }
         foreach ($this->validators as $validatorName => &$validator) {
             foreach (array('rules', 'messages') as $context) {
                 if (!isset($validator[$context])) {

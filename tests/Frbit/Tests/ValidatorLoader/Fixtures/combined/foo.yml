@@ -1,0 +1,13 @@
+---
+
+variables:
+    FOO1: This is foo one
+    FOO2: Foo two gets "<<BAR1>>"
+
+validators:
+    foo:
+        rules:
+            parameter:
+                - required
+        messages:
+            parameter.required: Got text delegated "<<FOO2>>"

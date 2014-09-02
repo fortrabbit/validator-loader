@@ -1,0 +1,12 @@
+---
+
+variables:
+    BAR1: This is bar one
+
+validators:
+    bar:
+        rules:
+            parameter:
+                - required
+        messages:
+            parameter.required: Text would be from foo one "<<FOO1>>"
